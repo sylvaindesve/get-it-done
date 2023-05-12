@@ -5,6 +5,6 @@
 export interface Command<P = unknown> {
   /** Command type */
   type: string;
-  /** Optioonal command payload */
+  /** Optional command payload */
   payload?: P;
 }
