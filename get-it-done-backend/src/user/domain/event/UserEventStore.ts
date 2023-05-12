@@ -7,6 +7,7 @@ export interface UserEventStore extends EventStore {
   /**
    * Check if the provided login exists in the event store
    * @param login The login to check
+   * @returns True if the login exists
    */
   hasLogin(login: string): Promise<boolean>;
 }
