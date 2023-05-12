@@ -1,0 +1,10 @@
+{
+  "name": "get-it-done-backend",
+  "version": "0.0.1",
+  "description": "get-it-done backend server",
+  "main": "index.js",
+  "repository": "https://github.com/sylvaindesve/get-it-done",
+  "author": "Sylvain Desvé <sylvain.desve@gmail.com>",
+  "license": "GPLV3",
+  "private": true
+}
