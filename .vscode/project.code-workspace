@@ -1,0 +1,28 @@
+{
+  "folders": [
+    {
+      "name": "ROOT",
+      "path": "../"
+    },
+    {
+      "name": "backend",
+      "path": "../get-it-done-backend"
+    }
+  ],
+  "settings": {
+    "todo-tree.general.tags": [
+      "BUG",
+      "HACK",
+      "FIXME",
+      "TODO",
+      "XXX",
+      "[ ]",
+      "[x]",
+      "@todo"
+    ],
+    "todo-tree.general.tagGroups": {
+      "TODO": ["TODO", "@todo"]
+    },
+    "todo-tree.regex.regex": "((\\*|//|#|<!--|;|/\\*|^)\\s*($TAGS)|^\\s*- \\[ \\])"
+  }
+}
