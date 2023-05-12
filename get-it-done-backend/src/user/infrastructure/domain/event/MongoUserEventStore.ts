@@ -1,5 +1,5 @@
-import { MongoEventStore } from "../../../shared/infrastructure/domain/event/MongoEventStore";
-import { UserEventStore } from "../../domain/event/UserEventStore";
+import { MongoEventStore } from "../../../../shared/infrastructure/domain/event/MongoEventStore";
+import { UserEventStore } from "../../../domain/event/UserEventStore";
 
 /**
  * MongoDB specific implementation of the user event store
