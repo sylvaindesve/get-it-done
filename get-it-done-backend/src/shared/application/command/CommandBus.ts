@@ -5,8 +5,8 @@ import { Command } from "./Command";
  * @template P Payload type of the command
  * @template R Result type of the command execution
  */
-type CommandHandler<P = unknown, R = unknown> = (
-  command: Command<P>
+type CommandHandler<C extends Command = Command, R = unknown> = (
+  command: C
 ) => Promise<R>;
 
 /**
