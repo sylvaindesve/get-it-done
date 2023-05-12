@@ -1,7 +1,7 @@
 import { EventStore } from "../../../shared/domain/event/EventStore";
 
 /**
- * Specific interface of the event store for usr events.
+ * Specific interface of the event store for user events.
  */
 export interface UserEventStore extends EventStore {
   /**
