@@ -9,7 +9,7 @@ import { EventStore } from "../../../domain/event/EventStore";
 export class MongoEventStore implements EventStore {
   /**
    *
-   * @param mongoCollection The collection in where events are stored
+   * @param mongoCollection The collection where events are stored
    */
   constructor(protected mongoCollection: Collection<DomainMessage>) {}
 
