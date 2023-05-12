@@ -23,11 +23,11 @@ export interface DomainMessage<T extends DomainEvent = DomainEvent> {
  * @param event The event
  * @returns A message encapsulating the event
  */
-export function createDomainMessage<T>(
+export function createDomainMessage<T extends DomainEvent>(
   aggregateId: string,
   playhead: number,
-  event: DomainEvent<T>
-): DomainMessage<DomainEvent<T>> {
+  event: T
+): DomainMessage<T> {
   return {
     aggregateId,
     playhead,

@@ -1,30 +1,7 @@
 /**
- * Domain event with type and optional details
- * @template T Details type if any
+ * Domain event with mandatory type
  */
-export interface DomainEvent<T = unknown> {
+export interface DomainEvent {
   /** Event type */
   type: string;
-  /** Event details */
-  details?: T;
-}
-
-/**
- * Create a domain event from type and optional details
- * @param type Event type
- * @param details Optional event details
- * @returns Event created
- */
-export function createDomainEvent<T>(
-  type: string,
-  details?: T
-): DomainEvent<T> {
-  if (details) {
-    return {
-      type,
-      details,
-    };
-  } else {
-    return { type };
-  }
 }
