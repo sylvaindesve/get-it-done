@@ -1,6 +1,13 @@
 import { Command } from "./Command";
 
-type CommandHandler = (command: Command) => Promise<unknown>;
+/**
+ * Handler function for a command
+ * @template P Payload type of the command
+ * @template R Result type of the command execution
+ */
+type CommandHandler<P = unknown, R = unknown> = (
+  command: Command<P>
+) => Promise<R>;
 
 /**
  * Bus to execute commands.
