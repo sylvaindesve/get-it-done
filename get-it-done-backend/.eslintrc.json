@@ -1,0 +1,28 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "jsdoc"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jsdoc/recommended-typescript"
+  ],
+  "rules": {
+    "jsdoc/require-jsdoc": [
+      "warn",
+      {
+        "contexts": [
+          "TSInterfaceDeclaration",
+          "TSMethodSignature",
+          "TSPropertySignature"
+        ],
+        "publicOnly": { "ancestorsOnly": true },
+        "require": {
+          "ClassDeclaration": true,
+          "ClassExpression": true,
+          "MethodDefinition": true
+        }
+      }
+    ]
+  }
+}
