@@ -8,6 +8,7 @@ export interface ReadModelRepository<T extends ReadModel = ReadModel> {
    * Try to find the read model with the provided ID or returns null if it can't
    * find it
    * @param id ID of the searched read model
+   * @returns The found read model or `null`
    */
   find(id: string): Promise<T | null>;
 
