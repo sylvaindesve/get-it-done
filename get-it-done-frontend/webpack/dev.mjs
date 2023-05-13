@@ -11,6 +11,9 @@ const devServer = {
   port: config.PORT,
   host: config.HOST,
   hot: true,
+  proxy: {
+    "/api": "http://localhost:3000",
+  },
   client: {
     progress: true,
   },
