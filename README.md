@@ -7,3 +7,4 @@ application.
 
 - [express-rest-boilerplate](https://github.com/danielfsousa/express-rest-boilerplate)
 - [typescript-webpack-boilerplate](https://github.com/VD39/typescript-webpack-boilerplate/tree/master)
+- [declarative-router-with-web-components](https://medium.com/@jasim/declarative-router-with-web-components-43ddcebc9dbc)
