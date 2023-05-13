@@ -5,4 +5,5 @@ application.
 
 ## Sources of inspiration
 
+- [express-rest-boilerplate](https://github.com/danielfsousa/express-rest-boilerplate)
 - [typescript-webpack-boilerplate](https://github.com/VD39/typescript-webpack-boilerplate/tree/master)
