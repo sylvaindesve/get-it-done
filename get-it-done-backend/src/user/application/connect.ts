@@ -19,7 +19,7 @@ interface UserConnectParams {
  * Connect the user domain
  * @param params Connection parameters
  */
-export default function connect(params: UserConnectParams) {
+export function connectUserDomain(params: UserConnectParams) {
   const {
     eventBus,
     commandBus,
