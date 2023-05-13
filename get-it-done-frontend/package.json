@@ -1,0 +1,22 @@
+{
+  "name": "get-it-done-frontend",
+  "version": "0.0.1",
+  "description": "get-it-done frontend application",
+  "repository": "https://github.com/sylvaindesve/get-it-done",
+  "author": "Sylvain Desvé <sylvain.desve@gmail.com>",
+  "license": "GPLV3",
+  "private": true,
+  "scripts": {
+    "serve": "NODE_ENV=development webpack serve --config webpack.config.mjs"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "html-webpack-plugin": "^5.5.1",
+    "ts-loader": "^9.4.2",
+    "typescript": "^5.0.4",
+    "webpack": "^5.82.1",
+    "webpack-cli": "^5.1.1",
+    "webpack-dev-server": "^4.15.0",
+    "webpack-merge": "^5.8.0"
+  }
+}

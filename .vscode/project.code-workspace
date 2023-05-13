@@ -7,6 +7,10 @@
     {
       "name": "backend",
       "path": "../get-it-done-backend"
+    },
+    {
+      "name": "frontend",
+      "path": "../get-it-done-frontend"
     }
   ],
   "settings": {
