@@ -43,6 +43,10 @@ export class Router extends HTMLElement {
       throw `Path '${path}' already registered`;
     } else {
       this.routeListeners[path] = listener;
+      // Immediately navigate to it if it matches
+      if (window.location.pathname === path) {
+        this.navigate(path);
+      }
     }
   }
 
