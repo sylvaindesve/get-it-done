@@ -14,7 +14,8 @@
         "contexts": [
           "TSInterfaceDeclaration",
           "TSMethodSignature",
-          "TSPropertySignature"
+          "TSPropertySignature",
+          "TSTypeAliasDeclaration"
         ],
         "publicOnly": { "ancestorsOnly": true },
         "require": {
