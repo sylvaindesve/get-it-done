@@ -4,7 +4,7 @@ import type { AppAction } from "./actions";
 /**
  * App state interface
  */
-export interface State {
+export interface AppState {
   /** Connection token */
   token?: string;
 }
@@ -14,7 +14,7 @@ export interface State {
  * @param value Anything
  * @returns True if the value is a valid application state
  */
-export function isState(value: unknown): value is State {
+export function isState(value: unknown): value is AppState {
   if (value === null || value === undefined) {
     return false;
   }
@@ -27,9 +27,9 @@ export function isState(value: unknown): value is State {
   return true;
 }
 
-const initialState: State = {};
+const initialState: AppState = {};
 
-export const reducer: Reducer<State, AppAction> = (
+export const reducer: Reducer<AppState, AppAction> = (
   state = initialState,
   action
 ) => {

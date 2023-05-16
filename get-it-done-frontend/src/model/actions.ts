@@ -1,4 +1,4 @@
-import type { State } from "./reducer";
+import type { AppState } from "./reducer";
 import type { Action } from "./StateStore";
 
 /**
@@ -6,7 +6,7 @@ import type { Action } from "./StateStore";
  */
 export interface SetStateAction extends Action<"SET_STATE"> {
   /** The new state */
-  state: State;
+  state: AppState;
 }
 
 /**
@@ -14,7 +14,7 @@ export interface SetStateAction extends Action<"SET_STATE"> {
  * @param state The new state
  * @returns Action to st the state
  */
-export function setState(state: State): SetStateAction {
+export function setState(state: AppState): SetStateAction {
   return {
     type: "SET_STATE",
     state,
