@@ -25,7 +25,7 @@ export type StateListener<S> = (state: S) => void;
  */
 export class StateStore<S, A extends Action> {
   private currentState: S;
-  private listeners: StateListener<S>[] = [];
+  private listeners: Set<StateListener<S>> = new Set();
 
   /**
    * @param reducer The reducer to user
@@ -48,7 +48,7 @@ export class StateStore<S, A extends Action> {
    * @param listener The listener
    */
   subscribe(listener: StateListener<S>) {
-    this.listeners.push(listener);
+    this.listeners.add(listener);
   }
 
   /**
