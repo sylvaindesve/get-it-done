@@ -1,7 +1,11 @@
-import { expect } from "chai";
+import chai, { expect } from "chai";
 import { describe, it } from "mocha";
+import { fake } from "sinon";
+import sinonChai from "sinon-chai";
 
 import { StateStore, type Action } from "../../src/model/StateStore";
+
+chai.use(sinonChai);
 
 describe("StateStore", () => {
   it("should initialize state", () => {
@@ -42,5 +46,23 @@ describe("StateStore", () => {
       expect(newState).to.equal(1);
     });
     store.dispatch({ type: "INCREMENT" });
+  });
+
+  it("should register a listener only once", function () {
+    const store = new StateStore<number, Action<"INCREMENT">>(
+      (state = 0, action) => {
+        if (action.type === "INCREMENT") {
+          return state + 1;
+        }
+        return state;
+      }
+    );
+    const listener = fake();
+
+    store.subscribe(listener);
+    store.subscribe(listener);
+
+    store.dispatch({ type: "INCREMENT" });
+    expect(listener).to.have.been.calledOnce;
   });
 });
