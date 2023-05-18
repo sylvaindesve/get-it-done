@@ -46,9 +46,13 @@ export class StateStore<S, A extends Action> {
    * Add a state listener to the store so it can be called whenever the state
    * changes
    * @param listener The listener
+   * @returns a function to unsubscribe
    */
-  subscribe(listener: StateListener<S>) {
+  subscribe(listener: StateListener<S>): () => void {
     this.listeners.add(listener);
+    return () => {
+      this.listeners.delete(listener);
+    };
   }
 
   /**

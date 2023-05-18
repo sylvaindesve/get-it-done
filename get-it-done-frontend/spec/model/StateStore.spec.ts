@@ -65,4 +65,26 @@ describe("StateStore", () => {
     store.dispatch({ type: "INCREMENT" });
     expect(listener).to.have.been.calledOnce;
   });
+
+  it("should return a function to unsubscribe uppon registration", function () {
+    const store = new StateStore<number, Action<"INCREMENT">>(
+      (state = 0, action) => {
+        if (action.type === "INCREMENT") {
+          return state + 1;
+        }
+        return state;
+      }
+    );
+    const listener = fake();
+
+    const unsubscribe = store.subscribe(listener);
+
+    store.dispatch({ type: "INCREMENT" });
+    expect(listener).to.have.been.calledOnce;
+
+    listener.resetHistory();
+    unsubscribe();
+    store.dispatch({ type: "INCREMENT" });
+    expect(listener).to.not.have.been.called;
+  });
 });
