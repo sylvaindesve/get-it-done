@@ -1,4 +1,5 @@
 export * from "./createContext";
 export * from "./ContextRequestEvent";
 export * from "./ValueNotifier";
-export * from "./ContextProvider";
+export { ContextProvider } from "./ContextProvider";
+export { ContextConsumer } from "./ContextConsumer";
