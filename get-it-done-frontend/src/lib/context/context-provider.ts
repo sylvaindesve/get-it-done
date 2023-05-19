@@ -1,9 +1,9 @@
 import { BaseView } from "../../view/base-view";
 import type { Controller } from "../../view/base-view";
 
-import type { ContextRequestEvent } from "./ContextRequestEvent";
-import type { Context, ContextType } from "./createContext";
-import { ValueNotifier } from "./ValueNotifier";
+import type { ContextRequestEvent } from "./context-request-event";
+import type { Context, ContextType } from "./create-context";
+import { ValueNotifier } from "./value-notifier";
 
 /**
  * Context provider options

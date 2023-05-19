@@ -1,4 +1,4 @@
-import type { ContextCallback } from "./ContextRequestEvent.js";
+import type { ContextCallback } from "./context-request-event.js";
 
 /** Dispose function */
 type Disposer = () => void;

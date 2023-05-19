@@ -1,10 +1,10 @@
 import type { BaseView, Controller } from "../../view/base-view";
 
-import type { Context, ContextType } from "./createContext";
+import type { Context, ContextType } from "./create-context";
 import {
   ContextRequestEvent,
   type ContextCallback,
-} from "./ContextRequestEvent";
+} from "./context-request-event";
 
 /**
  * Context consumer options

@@ -1,4 +1,4 @@
-import type { ContextType, Context } from "./createContext.js";
+import type { ContextType, Context } from "./create-context.js";
 
 declare global {
   interface HTMLElementEventMap {
