@@ -14,6 +14,7 @@ const devServer = {
   proxy: {
     "/api": "http://localhost:3000",
   },
+  historyApiFallback: true,
   client: {
     progress: true,
   },
