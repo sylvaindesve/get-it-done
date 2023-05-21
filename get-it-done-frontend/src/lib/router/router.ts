@@ -1,22 +1,36 @@
-/* eslint-disable */
-
 import type { BaseView, Controller } from "../../view/base-view";
 
+/**
+ * A route configuration
+ */
 export interface RouteConfig {
+  /** The route path */
   path: string;
+  /** The function to call when navigating to this route */
   onNavigation: () => void;
 }
 
+/**
+ * A router controller
+ */
 export class Router implements Controller {
   private readonly _host: BaseView;
 
   private _routes: Array<RouteConfig> = [];
 
+  /**
+   * @param host The controller host
+   * @param routes The routes configuration array
+   */
   constructor(host: BaseView, routes: Array<RouteConfig>) {
     this._routes = routes;
     (this._host = host).addController(this);
   }
 
+  /**
+   * Navigate to given path
+   * @param pathname The path to navigate to
+   */
   goto(pathname: string) {
     const route = this._routes.find((r) => r.path === pathname);
 
@@ -27,12 +41,14 @@ export class Router implements Controller {
     route.onNavigation();
   }
 
+  // eslint-disable-next-line jsdoc/require-jsdoc
   hostConnected() {
     window.addEventListener("click", this._onClick);
     window.addEventListener("popstate", this._onPopState);
     this.goto(window.location.pathname);
   }
 
+  // eslint-disable-next-line jsdoc/require-jsdoc
   hostDisconnected() {
     window.removeEventListener("click", this._onClick);
     window.removeEventListener("popstate", this._onPopState);
@@ -79,7 +95,7 @@ export class Router implements Controller {
     }
   };
 
-  private _onPopState = (_e: PopStateEvent) => {
+  private _onPopState = () => {
     this.goto(window.location.pathname);
   };
 }
