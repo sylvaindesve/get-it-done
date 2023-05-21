@@ -13,6 +13,7 @@ export interface Controller {
  */
 export abstract class BaseView extends HTMLElement {
   /**
+   * The view template to override in derived classes
    * @returns the template of the view as a string
    */
   static get template() {
@@ -20,10 +21,25 @@ export abstract class BaseView extends HTMLElement {
   }
 
   /**
+   * The CSS styles to override in derived classes
    * @returns CSS styles forr the view as a string
    */
   static get style() {
     return ``;
+  }
+
+  private static _templateElement: HTMLTemplateElement | null;
+
+  /**
+   * Creates or get the template element for this view
+   * @returns the template element
+   */
+  private static _createOrGetTemplateElement() {
+    if (!this._templateElement) {
+      this._templateElement = document.createElement("template");
+      this._templateElement.innerHTML = `<style>${this.style}</style>${this.template}`;
+    }
+    return this._templateElement;
   }
 
   readonly renderRoot!: ShadowRoot;
@@ -53,11 +69,9 @@ export abstract class BaseView extends HTMLElement {
     if (this.renderRoot === undefined) {
       const renderRoot = this.attachShadow({ mode: "open" });
 
-      const style = (this.constructor as typeof BaseView).style;
-      const template = (this.constructor as typeof BaseView).template;
-
-      const tmp = document.createElement("template");
-      tmp.innerHTML = `<style>${style}</style>${template}`;
+      const tmp = (
+        this.constructor as typeof BaseView
+      )._createOrGetTemplateElement();
       renderRoot.appendChild(tmp.content.cloneNode(true));
 
       (this as { renderRoot: ShadowRoot }).renderRoot = renderRoot;
