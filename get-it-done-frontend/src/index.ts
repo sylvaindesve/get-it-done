@@ -1,16 +1,14 @@
-import { Router } from "./components/Router";
+import { Backend } from "./Backend";
+import { StateStore } from "./model/StateStore";
+import { reducer } from "./model/reducer";
+import { App } from "./view/app";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const router = document.getElementById("router");
-  if (router && router instanceof Router) {
-    router.addRouteListener("/", (route, routerElement) => {
-      routerElement.innerHTML = "Home page";
-    });
-    router.addRouteListener("/register", (route, routerElement) => {
-      routerElement.innerHTML = "Register page";
-    });
-    router.addRouteListener("/login", (route, routerElement) => {
-      routerElement.innerHTML = "Login page";
-    });
+  const root = document.getElementById("root");
+  if (root) {
+    const store = new StateStore(reducer);
+    const backend = new Backend(fetch.bind(this));
+    const app = new App(store, backend);
+    root.appendChild(app);
   }
 });
