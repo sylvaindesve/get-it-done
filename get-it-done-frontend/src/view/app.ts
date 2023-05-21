@@ -14,20 +14,37 @@ export const storeContext = createContext<StateStore<AppState, AppAction>>(
 );
 
 export class App extends BaseView {
+  static override get style() {
+    return `
+    :host {
+      display: block;
+    }
+
+    ul {
+      display: flex;
+      list-style: none;
+    }
+
+    li {
+      padding: 1rem;
+    }
+    `;
+  }
+
   static override get template() {
     return `
     <ul>
       <li>
-        <a href="/">Home</a>
+        <a part="menu-link" href="/">Home</a>
       </li>
       <li>
-        <a href="/signup">Sign up</a>
+        <a part="menu-link" href="/signup">Sign up</a>
       </li>
       <li>
-        <a href="/signin">Sign in</a>
+        <a part="menu-link" href="/signin">Sign in</a>
       </li>
       <li>
-        <a href="/tasks">Tasks</a>
+        <a part="menu-link" href="/tasks">Tasks</a>
       </li>
     </ul>
     <p id="error"></p>
